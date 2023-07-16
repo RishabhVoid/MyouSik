@@ -9,6 +9,9 @@ import StoreStateTypeDef from './setup/store/types/storeStateTypeDef';
 import { useEffect } from 'react';
 import PlaylistsPage from './pages/PlaylistsPage';
 import SettingsPage from './pages/SettingsPage';
+import PlaylistManager from './layouts/PlaylistManager';
+import PlaylistRandomizer from './layouts/PlaylistRandomizer';
+import PlaylistPlayer from './layouts/PlaylistPlayer';
 
 const App = () => {
   return (
@@ -21,12 +24,20 @@ const App = () => {
 export default App;
 
 const SwitchToRememberedRoute = () => {
+  const toUseRememberedRoute = useSelector(
+    (state: StoreStateTypeDef) => state.rememberView
+  );
+
   const rememberedRoute = useSelector(
     (state: StoreStateTypeDef) => state.viewPageUrl
   );
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!toUseRememberedRoute) {
+      navigate('/index.html');
+      return;
+    }
     navigate(rememberedRoute);
   }, []);
 
@@ -37,7 +48,11 @@ const SwitchToRememberedRoute = () => {
       <Navbar />
       <Routes>
         <Route path="/index.html" element={<FolderViewPage />} />
-        <Route path="/index.html/playlists" element={<PlaylistsPage />} />
+        <Route path="/index.html/playlists" element={<PlaylistsPage />}>
+          <Route path="manager" element={<PlaylistManager />} />
+          <Route path="randomizer" element={<PlaylistRandomizer />} />
+          <Route path="player/:playlist" element={<PlaylistPlayer />} />
+        </Route>
         <Route path="/index.html/settings" element={<SettingsPage />} />
       </Routes>
     </div>

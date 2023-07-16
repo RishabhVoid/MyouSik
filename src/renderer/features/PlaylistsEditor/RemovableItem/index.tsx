@@ -42,14 +42,11 @@ const RemovableItem = ({
       }}
     >
       <CustomTooltip
-        title={data.title}
+        title={!cursorPointer ? data.title : ''}
         tooltipSize={tooltipSize}
         placement="top"
       >
-        <h4>
-          {data.title.slice(0, 25)}
-          {data.title.length > 25 ? '...' : ''}
-        </h4>
+        <h4>{data.title}</h4>
       </CustomTooltip>
       <button onClick={handleClick}>
         <DeleteIcon sx={{ color: '#fff' }} />

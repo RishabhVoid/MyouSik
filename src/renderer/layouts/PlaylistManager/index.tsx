@@ -6,7 +6,7 @@ const PlaylistManager = () => {
     <div
       style={{
         height: '100%',
-        width: '100%',
+        flex: 1,
         padding: '1rem',
         display: 'flex',
       }}

@@ -8,8 +8,6 @@ export const AppContext = createContext<ContextTypeDef>({
     messages: [''],
   },
   setAlertState: () => {},
-  folderPlayerLoading: false,
-  setFolderPlayerLoading: () => {},
   choicesState: {
     callback(choice) {},
     message: '',
@@ -18,6 +16,12 @@ export const AppContext = createContext<ContextTypeDef>({
   setChoicesState: () => {},
   folderPlayerAudioPath: '',
   setFolderPlayerAudioPath: () => {},
+  folderPlayerLoading: false,
+  setFolderPlayerLoading: () => {},
+  playlistPlayerAudioPath: '',
+  setPlaylistPlayerAudioPath: () => {},
+  playlistPlayerLoading: false,
+  setPlaylistPlayerLoading: () => {},
 });
 
 type props = {
@@ -38,6 +42,9 @@ const AppContextProvider = ({ children }: props) => {
   const [folderPlayerAudioPath, setFolderPlayerAudioPath] = useState('');
   const [folderPlayerLoading, setFolderPlayerLoading] = useState(false);
 
+  const [playlistPlayerAudioPath, setPlaylistPlayerAudioPath] = useState('');
+  const [playlistPlayerLoading, setPlaylistPlayerLoading] = useState(false);
+
   const values = useMemo(() => {
     return {
       alertState,
@@ -48,8 +55,19 @@ const AppContextProvider = ({ children }: props) => {
       setFolderPlayerAudioPath,
       folderPlayerLoading,
       setFolderPlayerLoading,
+      playlistPlayerAudioPath,
+      setPlaylistPlayerAudioPath,
+      playlistPlayerLoading,
+      setPlaylistPlayerLoading,
     };
-  }, [alertState, choicesState, folderPlayerAudioPath, folderPlayerLoading]);
+  }, [
+    alertState,
+    choicesState,
+    folderPlayerAudioPath,
+    folderPlayerLoading,
+    playlistPlayerAudioPath,
+    playlistPlayerLoading,
+  ]);
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };

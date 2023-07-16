@@ -30,7 +30,7 @@ const IdleMenu = () => {
           />
         ))}
       </div>
-      <h5>No folder selected.</h5>
+      <h5>No audio file selected.</h5>
     </div>
   );
 };

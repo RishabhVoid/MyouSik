@@ -4,6 +4,8 @@
   border-radius: 5px;
   width: 30%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   hr{
     border-color: var(--font-sec);
@@ -21,7 +23,7 @@
   .scroll_area{
     overflow-x: hidden;
     overflow-y: scroll;
-  
+
     &::-webkit-scrollbar{
       background-color: var(--layer-one);
       width: 8px;

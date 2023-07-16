@@ -44,6 +44,7 @@ const PlayerController = ({
 
   // UseEffect responsible for loading the audio file and setting up the player
   useEffect(() => {
+    if (!path.length) return;
     setLoading(true);
     loadAudioBufferArray();
     setPlayerCount(0);

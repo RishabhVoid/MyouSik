@@ -23,10 +23,10 @@ const removeFromPlaylist = (
       (audioObj: AudioObjTypeDef) => audioObj.fileTitle !== fileTitle
     );
     fs.writeFileSync(configPath, JSON.stringify(data));
-    event.reply(REMOVE_FROM_PLAYLIST, 'success');
+    event.reply(REMOVE_FROM_PLAYLIST, 'success', data.playlists[playlistName]);
   } catch (error) {
     console.log(error);
-    event.reply(REMOVE_FROM_PLAYLIST, 'error');
+    event.reply(REMOVE_FROM_PLAYLIST, 'error', ['']);
   }
 };
 

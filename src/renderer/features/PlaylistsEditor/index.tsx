@@ -10,7 +10,7 @@ const PlaylistsEditor = () => {
   return (
     <div
       style={{
-        flex: 1,
+        width: '70%',
         paddingLeft: '10px',
         display: 'flex',
       }}

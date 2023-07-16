@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   width: 50%;
   background-color: var(--layer-one);
   display: flex;
@@ -6,30 +6,29 @@
   border-radius: 5px 0px 0px 5px;
   padding: 10px;
 
-  hr{
+  hr {
     margin-top: 10px;
     border-color: var(--font-sec);
     width: 80%;
-    
   }
 
-  h1{
+  h1 {
     font-size: 1rem;
     color: var(--font-pr);
   }
 
-  .scroll_list{
+  .scroll_list {
     overflow-y: scroll;
     overflow-x: hidden;
     flex: 1;
     margin-top: 10px;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       background-color: var(--layer-one);
       width: 8px;
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
       background-color: var(--layer-two);
       border-radius: 100px;
     }

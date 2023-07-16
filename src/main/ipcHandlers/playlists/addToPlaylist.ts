@@ -28,9 +28,9 @@ const addToPlaylist = (
       filePath: filePath,
     });
     fs.writeFileSync(configPath, JSON.stringify(data));
-    event.reply(ADD_TO_PLAYLIST, 'success');
+    event.reply(ADD_TO_PLAYLIST, 'success', data.playlists[playlistName]);
   } catch (error) {
-    event.reply(ADD_TO_PLAYLIST, 'error');
+    event.reply(ADD_TO_PLAYLIST, 'error', ['']);
   }
 };
 

@@ -17,7 +17,7 @@ type props = {
 };
 
 const PlaylistsList = ({ selectedPlaylist, setSelectedPlaylist }: props) => {
-  const { setAlertState } = useContext(AppContext);
+  const { setAlertState, setChoicesState } = useContext(AppContext);
 
   const [allPlaylists, setAllPlaylists] = useState<Array<string>>([]);
   const [newPlaylistInputValue, setNewPlaylistInputValue] = useState('');
@@ -46,7 +46,15 @@ const PlaylistsList = ({ selectedPlaylist, setSelectedPlaylist }: props) => {
   };
 
   const removePlaylist = ({ title }: RemovableItemDataTypeDef) => {
-    window.electron.ipcRenderer.sendMessage(REMOVE_PLAYLIST, title);
+    setChoicesState({
+      message: `Are you sure you want to delete ${selectedPlaylist}?`,
+      choices: ['Delete', 'Cancel'],
+      callback(choice) {
+        if (choice === 'Cancel') return;
+        window.electron.ipcRenderer.sendMessage(REMOVE_PLAYLIST, title);
+        setSelectedPlaylist('');
+      },
+    });
   };
 
   useEffect(() => {

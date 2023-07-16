@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setViewPageUrl } from 'renderer/setup/store/actions';
 import PlaylistManager from 'renderer/layouts/PlaylistManager';
+import PlaylistPageNavbar from 'renderer/features/PlaylistPageNavbar';
+import { Outlet } from 'react-router-dom';
 
 const PlaylistsPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,15 @@ const PlaylistsPage = () => {
         flex: 1,
       }}
     >
-      <PlaylistManager />
+      <PlaylistPageNavbar />
+      <div
+        style={{
+          flex: 1,
+          overflow: 'hidden',
+        }}
+      >
+        <Outlet />
+      </div>
     </div>
   );
 };

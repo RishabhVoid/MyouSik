@@ -1,31 +1,34 @@
-.item_wrapper{
+.item_wrapper {
   display: flex;
-  align-items: center;
-  width: 100%;
+  // align-items: center;
+  width: 95%;
   margin-bottom: 5px;
   background-color: var(--layer-two);
   border-radius: 5px;
-  height: 30px;
   overflow: hidden;
-  
-  h4{
+
+  h4 {
     color: var(--font-pr);
     padding: 2px 5px;
     flex: 1;
     text-align: left;
-    margin: 0;
-    font-size: .9rem;
+    margin: auto 0;
+    font-size: 0.8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  button{
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--accent);
-    border: 0;
     padding: 2px;
     cursor: pointer;
     border-radius: 0px 5px 5px 0px;
-    height: 100%;
+    border: 0;
   }
 }

@@ -71,10 +71,6 @@ const PlaylistItems = ({ selectedPlaylist }: props) => {
       (status, playlistsList) => {
         if (typeof status !== typeof '') return;
         if (status === 'success') {
-          if (playlistsList === undefined) {
-            refreshPlaylistItems();
-            return;
-          }
           setPlaylistItems(playlistsList as Array<PlaylistItemTypeDef>);
           return;
         }
@@ -87,34 +83,39 @@ const PlaylistItems = ({ selectedPlaylist }: props) => {
       }
     );
 
-    window.electron.ipcRenderer.on(REMOVE_FROM_PLAYLIST, (status) => {
-      if (typeof status !== typeof '') return;
-      console.log(status);
-      if (status === 'success') {
-        refreshPlaylistItems();
-        return;
+    window.electron.ipcRenderer.on(
+      REMOVE_FROM_PLAYLIST,
+      (status, updatedPlaylist) => {
+        if (typeof status !== typeof '') return;
+        if (status === 'success') {
+          setPlaylistItems(updatedPlaylist as Array<PlaylistItemTypeDef>);
+          return;
+        }
+        setAlertState({
+          messages: [
+            'There was a problem removing audio',
+            'Restart the app if problem persues.',
+          ],
+        });
       }
-      setAlertState({
-        messages: [
-          'There was a problem removing audio',
-          'Restart the app if problem persues.',
-        ],
-      });
-    });
+    );
 
-    window.electron.ipcRenderer.on(ADD_TO_PLAYLIST, (status) => {
-      if (typeof status !== typeof '') return;
-      if (status === 'success') {
-        refreshPlaylistItems();
-        return;
+    window.electron.ipcRenderer.on(
+      ADD_TO_PLAYLIST,
+      (status, updatedPlaylist) => {
+        if (typeof status !== typeof '') return;
+        if (status === 'success') {
+          setPlaylistItems(updatedPlaylist as Array<PlaylistItemTypeDef>);
+          return;
+        }
+        setAlertState({
+          messages: [
+            'There was a problem adding audio',
+            'Restart the app if problem persues.',
+          ],
+        });
       }
-      setAlertState({
-        messages: [
-          'There was a problem adding audio',
-          'Restart the app if problem persues.',
-        ],
-      });
-    });
+    );
 
     return () => {
       window.electron.ipcRenderer.removeAllListeners(GET_PLAYLIST_ITEMS);
