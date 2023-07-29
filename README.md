@@ -8,11 +8,69 @@ Around April of 2023 I was working on a project for a Hackathon which was about 
 
 ## Features
 
-Folder based navigation
-
-    Folders on pc can be linked to the application that have a live view of files within them, any change made to the file will be reflected instantly
-
-- Light/dark mode toggle
 - Folder based navigation
-- Fullscreen mode
-- Cross platform
+- Playlist manager (Drag n' Drop mostly)
+- Light/dark mode toggle
+
+## Screenshots
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1113007559360663573/1134778623677702144/folder_navigation.png)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1113007559360663573/1134778624009060352/playlist_manager.png)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/1113007559360663573/1134778624273297459/playlist_player.png)
+
+## Installation
+
+Currently there is no stable version although it is possible to run the code locally using npm.
+Any furthur updates will be reflected on the app website
+[visit website](http://myousik-display.vercel.app).
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/RishabhVoid/MyouSik.git
+```
+
+Go to the project directory
+
+```bash
+  cd MyouSik
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+or
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+or
+
+```bash
+  yarn dev
+```
+
+## Planned updates
+
+- Context menu
+- Customizable themes
+- Support for more file types
+
+## Contact
+
+You can directly reach out to me at rishabhvoid@gmail.com
+or if you want to shoot a message, you can do that at the myousik website [visit website](http://myousik-display.vercel.app).
