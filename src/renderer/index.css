@@ -8,10 +8,6 @@
   font-weight: 300;
 }
 
-body {
-  overflow: hidden;
-}
-
 :root {
   --layer-zero: #181818;
   --layer-one: #212121;
@@ -23,4 +19,8 @@ body {
   --accent: #0663e5;
   --accent-dark: #0453c0;
   --accent-opposite: #f44336;
+}
+
+body {
+  overflow: hidden;
 }
