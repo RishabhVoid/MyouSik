@@ -10,8 +10,7 @@ Around April of 2023 I was working on a project for a Hackathon which was about 
 
 Folder based navigation
 
-    Folders on pc can be linked to the application that have a live view of files within them,
-    any change made to the file will be reflected instantly
+    Folders on pc can be linked to the application that have a live view of files within them, any change made to the file will be reflected instantly
 
 - Light/dark mode toggle
 - Folder based navigation
